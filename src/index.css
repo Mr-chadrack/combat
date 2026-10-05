@@ -29,8 +29,54 @@ body {
 
 .hero-section {
   /* Assure l'image de fond sur tout le conteneur main */
-  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('image/bible.jpg');
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+.hero-carousel .carousel-item {
+  height: 100vh;
+  min-height: 500px;
+}
+
+.hero-carousel .carousel-item img {
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Voile sombre pour garder le texte et la navbar lisibles */
+.hero-carousel .carousel-item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.25));
+}
+
+.hero-carousel .carousel-caption {
+  z-index: 2;
+  bottom: 50%;
+  transform: translateY(50%);
+}
+
+/* Navbar overlay styles */
+
+.navbar-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1030;
+  background: transparent;
+}
+
+.navbar-overlay .navbar-brand,
+.navbar-overlay .nav-link {
+  color: #fff;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+.navbar-overlay .nav-link:hover,
+.navbar-overlay .nav-link.active {
+  color: #ffc107;
 }
