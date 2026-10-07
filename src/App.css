@@ -4,9 +4,25 @@
     padding-bottom: 40px;
 }
 .main-heading{
-    color: rgb(204, 18, 18);
+    color: #212529;
 }
 
 .underline{
+    height: 04px;
+    width: 4rem;
+    background-color: #0000FF;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    
+}
+.btn-link {
+    background-color: #0000FF;
+    text-decoration: none;
+    color: #FFF;
+}
+.cimp{
+    color: #0000FF;
+}
+.underline p{
     
 }

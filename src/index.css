@@ -1,6 +1,14 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+:root {
+  --bs-body-font-family: "Poppins", sans-serif;
+}
+
 body {
   margin: 0;
   padding: 0;
+  font-family: "Poppins", sans-serif;
 }
 .links ul a{
    font-size: 15px;
@@ -23,6 +31,14 @@ body {
 .header .nav-link {
   color: #050505;
   font-size: 15px;
+}
+
+/*  buton youtube   */
+
+.btn-youtube {
+  font-size: 0.85rem;       /* taille du texte : diminuez pour réduire encore */
+  padding: 0.45rem 1.1rem;  /* hauteur et largeur du bouton */
+  border-radius: 1px;      /* bords très arrondis */
 }
 
 /* SECTION MAIN */
@@ -66,17 +82,51 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 1030;
+  z-index: 100;
   background: transparent;
+  position:fixed;
+}
+
+.navbar-overlay .nav-link {
+  font-size: 0.85rem;       /* taille du texte (1rem = taille normale) */
+  padding: 0.4rem 0.75rem;  /* espace autour de chaque lien */
 }
 
 .navbar-overlay .navbar-brand,
 .navbar-overlay .nav-link {
-  color: #fff;
+  color: #ffffff;
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
 }
 
 .navbar-overlay .nav-link:hover,
 .navbar-overlay .nav-link.active {
-  color: #ffc107;
+  color: #0000FF;
+}
+
+
+
+
+.info-card {
+  border: 0;
+  border-radius: 16px;
+  overflow: hidden;              /* arrondit aussi la photo */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Photo : remplit toute la hauteur de la card */
+.info-card .card-photo {
+  width: 100%;
+  height: 100%;
+  min-height: 240px;
+  object-fit: cover;             /* recadre sans dÃ©former */
+  display: block;
+}
+
+.info-card .card-body {
+  padding: 2rem;
+}
+
+.info-card .card-text {
+  color: #495057;
+  line-height: 1.6;
 }
