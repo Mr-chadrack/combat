@@ -22,11 +22,11 @@ export default function CardsSection(){
       <div className="container">
         <div className="row g-4 justify-content-center">
           {cards.map((c) => (
-            <div key={c.title} className="col-12 col-lg-10">
+            <div key={c.title} className="col-6 col-lg-12">
               <div className="card info-card">
                 <div className="row g-0 h-100">
                   {/* PHOTO à gauche */}
-                  <div className="col-md-5">
+                  <div className="col-md-6">
                     <img src={c.image} className="card-photo" alt={c.title} />
                   </div>
 

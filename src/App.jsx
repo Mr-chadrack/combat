@@ -8,22 +8,22 @@ import Aprops from './Components/Page/Aprops'
 import Librairie from './Components/Page/Librairie'
 import Formation from './Components/Page/Formation'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import Layout from "./Components/Inc/Layout";
 
 function App() {
 
 
   return (
-    <Router>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Accueil />} />
-        <Route path="/Aprops" element={<Aprops />} />
-        <Route path="/Article" element={<Article />} />
-        <Route path="/Contact" element={<Contact />} />
-        <Route path="/Formation" element={<Formation />} />
-        <Route path="/Librairie" element={<Librairie />} />
-      </Routes>
-    </Router>
+<Routes>
+  <Route element={<Layout />}>
+    <Route path="/" element={<Accueil />} />
+    <Route path="/Aprops" element={<Aprops />} />
+    <Route path="/Article" element={<Article />} />
+    <Route path="/Contact" element={<Contact />} />
+    <Route path="/Formation" element={<Formation />} />
+    <Route path="/Librairie" element={<Librairie />} />
+  </Route>
+</Routes>
   )
 }
 

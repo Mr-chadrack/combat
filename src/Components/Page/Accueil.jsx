@@ -5,7 +5,7 @@ import CardsSection from '../Inc/cardsSection'
 import Structure from '../Inc/Structure'
 import Abouts from '../Inc/Abouts'
 import StructMessage from '../Inc/StructMessage'
-import StructFooter from '../Inc/StructFooter'
+import Footer from '../Inc/Footer'
 import { Link } from 'react-router-dom'
 
 const Accueil = () => {
@@ -23,9 +23,7 @@ const Accueil = () => {
 
                             {/* presentation */}
                             <Structure />
-                            <h3 className="fw-bolder text-uppercase ">A propos</h3>
-                            <div className="underline mx-auto"></div>
-                            <Abouts />
+                          
                             {/* notre vision, mission et nos valeurs */}
                             <StructMessage />
 
@@ -37,9 +35,36 @@ const Accueil = () => {
 
             </section>
 
+              {/* section aprops */}
 
-          
-            <StructFooter />
+            <section className="section bgImp">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-md-12 text-center">
+                              <h3 className="fw-bolder text-uppercase ">A propos</h3>
+                            <div className="underline mx-auto"></div>
+
+                            <Abouts />
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+                     {/* notre vision, mission et nos valeurs */}
+            <section className="section">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-md-12 text-center">
+                          
+                            <StructMessage />
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+
+
         </div>
     )
 }

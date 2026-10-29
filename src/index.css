@@ -85,10 +85,13 @@ body {
   z-index: 100;
   background: transparent;
   position:fixed;
+  
 }
 
+
+
 .navbar-overlay .nav-link {
-  font-size: 0.85rem;       /* taille du texte (1rem = taille normale) */
+  font-size: 10px;     /* taille du texte (1rem = taille normale) */
   padding: 0.4rem 0.75rem;  /* espace autour de chaque lien */
 }
 
@@ -96,6 +99,11 @@ body {
 .navbar-overlay .nav-link {
   color: #ffffff;
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+  
+}
+.navmenu:not(.navbar-light) .nav-link,
+.navmenu:not(.navbar-light) .navbar-brand {
+  color: #fff;
 }
 
 .navbar-overlay .nav-link:hover,
