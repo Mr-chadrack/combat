@@ -10,7 +10,7 @@ import {
 
 import logo from "../../image/logo.png";
 
-const ACCENT = "#0000FF";
+const ACCENT = "#17356b";
 
 const menuLinks = [
     { label: "Accueil", href: "/" },

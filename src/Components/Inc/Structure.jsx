@@ -9,11 +9,7 @@ import {
 import bibOuverte from "../../image/bibOuverte.jpg";
 
 const leftItems = [
-  {
-    icon: BsShieldCheck,
-    title: "Le bon combat",
-    text: "Lorem ipsum dolor sit amet consectetur adipiscing elit integer adipiscing erat",
-  },
+
   {
     icon: BsBullseye,
     title: "Nos missions",
@@ -21,7 +17,7 @@ const leftItems = [
   },
   {
     icon: BsBook,
-    title: "La librairie",
+    title: "Nos articles",
     text: "Lorem ipsum dolor sit amet consectetur adipiscing elit integer adipiscing erat",
   },
 ];
@@ -32,11 +28,7 @@ const rightItems = [
     title: "Soutenir l'œuvre",
     text: "Lorem ipsum dolor sit amet consectetur adipiscing elit integer adipiscing erat",
   },
-  {
-    icon: BsMortarboard,
-    title: "Formation",
-    text: "Lorem ipsum dolor sit amet consectetur adipiscing elit integer adipiscing erat",
-  },
+  
   {
     icon: BsSend,
     title: "Envoyer mon combat",

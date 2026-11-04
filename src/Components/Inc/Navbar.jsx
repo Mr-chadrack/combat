@@ -2,7 +2,10 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import logo from "../../image/logo.png"; // garde ton import actuel
 
+const NAVY = "#17356b"; // bleu foncé des liens
+
 export default function Navbar() {
+
     const [scrolled, setScrolled] = useState(false);
     const { pathname } = useLocation();
     const isHome = pathname === "/";
@@ -14,19 +17,46 @@ export default function Navbar() {
         return () => window.removeEventListener("scroll", onScroll);
     }, [pathname]);
 
-    // Liens blancs seulement sur l'accueil, avant le scroll
+      // Accueil, tout en haut : transparent + liens blancs
     const whiteLinks = isHome && !scrolled;
+
+    // Fond blanc semi-transparent uniquement sur les autres pages
+    const hasBackground = !isHome;
+
+      // Accueil : exactement comme avant (0.5). Autres pages : un peu plus opaque
+    const bgAlpha = isHome ? 0.85 : 1.85;
+
+
+    // Couleurs des liens (variables Bootstrap 5.3)
+    const colors = whiteLinks
+        ? {
+            "--bs-navbar-color": "rgba(255, 255, 255, 0.9)",
+            "--bs-navbar-hover-color": "#ffc107",
+            "--bs-navbar-active-color": "#ffc107",
+            "--bs-navbar-brand-color": "#ffffff",
+            "--bs-navbar-brand-hover-color": "#ffffff",
+        }
+        : {
+            "--bs-navbar-color": NAVY,
+            "--bs-navbar-hover-color": "#0d4fc4",
+            "--bs-navbar-active-color": "#0d4fc4",
+            "--bs-navbar-brand-color": NAVY,
+            "--bs-navbar-brand-hover-color": NAVY,
+        };
 
     return (
         <nav
             className={`navbar navbar-expand-lg fixed-top navmenu ${
-        whiteLinks ? "navbar-dark py-4" : "navbar-light py-2"
-      } ${scrolled ? "shadow-sm" : ""}`}
-      style={{
-        backgroundColor: scrolled ? "rgba(255, 255, 255, 0.5)" : "transparent",
-        backdropFilter: scrolled ? "blur(8px)" : "none",
-        transition: "all 0.3s ease",
-      }}
+                whiteLinks ? "navbar-dark py-4" : "navbar-light py-2"
+                } ${hasBackground ? "shadow-sm" : ""}`}
+            style={{
+                ...colors,
+                backgroundColor: hasBackground
+                  ? `rgba(255, 255, 255, ${bgAlpha})`
+                    : "transparent",
+                backdropFilter: scrolled ? "blur(8px)" : "none",
+                transition: "all 0.3s ease",
+            }}
         >
             <div className="container">
                 <Link to="/" className="navbar-brand d-flex align-items-center">
@@ -58,7 +88,7 @@ export default function Navbar() {
                             <Link className="nav-link" to="/Article">Article</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/Contact">Contact</Link>
+                            <Link className="nav-link" to="/Contact">Envoyer votre combat</Link>
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link" to="/Formation">Formation</Link>

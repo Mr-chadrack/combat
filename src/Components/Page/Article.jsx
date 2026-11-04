@@ -1,6 +1,7 @@
 import React from 'react'
 import CardsSection from '../Inc/cardsSection'
 import Footer from '../Inc/Footer'
+import Tittle from '../Inc/Tittle'
 
 const Article = () => {
     return (
@@ -10,9 +11,8 @@ const Article = () => {
 
                 <div className='container'>
                     <div className='row'>
-                        <div className='col-md-12 text-center py-5'>
-                            <h3 className="fw-bolder text-uppercase">Article</h3>
-                            <div className="underline mx-auto"></div>
+                        <div className='col-md-12 text-center'>
+                            <Tittle title=" Nos articles" />
 
                             <CardsSection />
 

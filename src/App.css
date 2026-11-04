@@ -1,7 +1,7 @@
 
 .section{
-    padding-top: 60px;
-    padding-bottom: 60px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 .main-heading{
     color: #212529;
@@ -10,19 +10,108 @@
 .underline{
     height: 04px;
     width: 4rem;
-    background-color: #0000FF;
+    background-color: #15336b;
     margin-top: 10px;
     margin-bottom: 10px;
     
 }
 .btn-link {
-    background-color: #0000FF;
+    background-color: #15336b;
     text-decoration: none;
     color: #FFF;
 }
 .cimp{
-    color: #0000FF;
+    color: #15336b;
 }
 .bgImp{
     background-color: #fbfbfb;
+}
+.navbar-color{
+    color: #17356b;
+}
+
+
+/* Envoyer combat */
+
+.combat-section {
+  --combat-navy: #15336b;
+  background: #fff;
+  padding-bottom: 4rem;
+}
+ 
+ 
+/* ----- Carte du formulaire (chevauche le bandeau) ----- */
+.combat-card {
+  position: relative;
+  max-width: 520px;
+  margin: -7rem auto 0;
+  padding: 1.8rem;
+  background: #f2f8ff;
+  border-radius: 32px;
+  box-shadow: 0 12px 40px rgba(79, 97, 150, 0.12);
+}
+ 
+.combat-input {
+  display: block;
+  width: 100%;
+  margin-bottom: 1.6rem;
+  padding: 0.9rem 1rem;
+  border: 0;
+  border-radius: 12px;
+  background: #fff;
+  font-size: 0.9rem;
+  color: #404a51;
+  outline: none;
+  transition: box-shadow 0.2s ease;
+}
+ 
+.combat-input::placeholder {
+  color: #b5b9c6;
+  font-size: 0.8rem;
+}
+ 
+.combat-input:focus {
+  box-shadow: 0 0 0 3px rgba(23, 44, 107, 0.2);
+}
+ 
+.combat-textarea {
+  min-height: 340px;
+  resize: vertical;
+}
+ 
+/* ----- Bouton ----- */
+.combat-submit {
+  min-width: 150px;
+  padding: 0.7rem 2rem;
+  border: 0;
+  border-radius: 10px;
+  background: var(--combat-navy);
+  color: #fff;
+  font-size: 0.9rem;
+  box-shadow: 4px 6px 12px rgba(23, 44, 107, 0.35);
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+ 
+.combat-submit:hover:not(:disabled) {
+  transform: translateY(-2px);
+}
+ 
+.combat-submit:disabled {
+  opacity: 0.7;
+  cursor: wait;
+}
+ 
+/* ----- Messages ----- */
+.combat-msg {
+  margin: 1.2rem 0 0;
+  text-align: center;
+  font-size: 0.85rem;
+}
+ 
+.combat-msg-ok { color: #1c7c3a; }
+.combat-msg-error { color: #c0392b; }
+ 
+@media (max-width: 575.98px) {
+  .combat-card { margin-left: 0.5rem; margin-right: 0.5rem; padding: 1.2rem; }
 }

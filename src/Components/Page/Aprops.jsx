@@ -2,6 +2,7 @@ import React from 'react'
 import Footer from '../Inc/Footer'
 import Abouts from '../Inc/Abouts'
 import CardsSection from '../Inc/cardsSection'
+import Tittle from '../Inc/Tittle'
 
 const Aprops = () => {
     return (
@@ -12,8 +13,8 @@ const Aprops = () => {
                        <div className="container">
                            <div className="row">
                                <div className="col-md-12 text-center">
-                                     <h3 className="fw-bolder text-uppercase ">A propos</h3>
-                                   <div className="underline mx-auto"></div>
+                                      <Tittle title="A propos" />
+                            
        
                                    <Abouts />
                                </div>

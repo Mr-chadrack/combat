@@ -13,7 +13,7 @@ const inputStyle = {
     borderRadius: "10px",
     boxShadow: "none",
 };
-const ACCENT = "#0000FF";
+const ACCENT = "#17356b";
 
 function Field({ label, icon: Icon, name, type = "text", placeholder, value, onChange, required }) {
     return (
