@@ -41,7 +41,9 @@ function ServiceItem({ icon: Icon, title, text, link = "#" }) {
     <div className="d-flex align-items-start gap-3 mb-5">
       <Icon size={30} className="cimp flex-shrink-0" />
       <div>
-        <h6 className="fw-bold text-uppercase mb-2">{title}</h6>
+        <h6 className="fw-bold  mb-2" style={{ color: '#15336b' }}>
+          {title}
+        </h6>
         <p className="text-secondary mb-3">{text}</p>
         <a href={link} className="btn btn-link btn-sm px-3">
           En savoir plus
@@ -60,7 +62,7 @@ export default function Services() {
 
         <div className="row align-items-center">
           {/* Colonne gauche */}
-          <div className="col-lg-4">
+          <div className="col-lg-4 text-upercase ">
             {leftItems.map((item) => (
               <ServiceItem key={item.title} {...item} />
             ))}

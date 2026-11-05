@@ -6,6 +6,17 @@ import {
     BsBuilding,
     BsBook,
 } from "react-icons/bs";
+import emailjs from "@emailjs/browser";
+
+
+
+
+
+const SERVICE_ID = "service_9cq0gqe";
+const TEMPLATE_ID = "template_107iaxj";
+const PUBLIC_KEY = "bV8ohMUNqnROVC13j";
+
+
 
 const inputStyle = {
     border: "1px solid #e5e7eb",
@@ -45,6 +56,9 @@ function Field({ label, icon: Icon, name, type = "text", placeholder, value, onC
 }
 
 export default function Contact() {
+    // dans le composant :
+    const [status, setStatus] = useState("idle"); // idle | sending | sent | error
+
     const [form, setForm] = useState({
         prenom: "",
         nom: "",
@@ -58,25 +72,37 @@ export default function Contact() {
     const handleChange = (e) =>
         setForm({ ...form, [e.target.name]: e.target.value });
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log("Message envoyé :", form);
-        // Ici : appel à ton API / EmailJS / backend
-        setForm({
-            prenom: "",
-            nom: "",
-            email: "",
-            telephone: "",
-            organisation: "",
-            sujet: "",
-            message: "",
-        });
-    };
+        setStatus("sending");
 
+        try {
+            // Les clés de l'objet `form` doivent correspondre aux {{variables}} du modèle
+            await emailjs.send(SERVICE_ID, TEMPLATE_ID, form, {
+                publicKey: PUBLIC_KEY,
+            });
+
+            setStatus("sent");
+            setForm({
+                prenom: "",
+                nom: "",
+                email: "",
+                telephone: "",
+                organisation: "",
+                sujet: "",
+                message: "",
+            });
+        } catch (err) {
+            console.error(err);
+            setStatus("error");
+        }
+    };
+    console.log(SERVICE_ID, TEMPLATE_ID, PUBLIC_KEY);
     return (
         <section className="py-5">
             <div className="container" style={{ maxWidth: "640px" }}>
-                <h2 className="fw-semibold mb-3">Contacter-nous</h2>
+                <h3 className="fw-bolder" style={{ color: '#15336b' }}>Contacter-nous</h3>
+
                 <div className="underline mx-auto"></div>
                 <p className="text-secondary mb-4">
                     Remplissez le formulaire et notre équipe vous répondra
@@ -86,12 +112,12 @@ export default function Contact() {
 
                 <form onSubmit={handleSubmit}>
                     <div className="row g-4 ">
-                        <Field label="Prénom" icon={BsPerson} name="prenom" placeholder="Entrez votre prénom" value={form.prenom} onChange={handleChange} required />
-                        <Field label="Nom" icon={BsPerson} name="nom" placeholder="Entrez votre nom" value={form.nom} onChange={handleChange} required />
-                        <Field label="Email" icon={BsEnvelope} name="email" type="email" placeholder="Entrez votre email" value={form.email} onChange={handleChange} required />
-                        <Field label="Téléphone" icon={BsTelephone} name="telephone" type="tel" placeholder="Entrez votre numéro" value={form.telephone} onChange={handleChange} />
-                        <Field label="Organisation" icon={BsBuilding} name="organisation" placeholder="Nom de votre organisation" value={form.organisation} onChange={handleChange} />
-                        <Field label="Sujet" icon={BsBook} name="sujet" placeholder="Entrez le sujet" value={form.sujet} onChange={handleChange} required />
+                        <Field className="combat-input" label="Prénom" icon={BsPerson} name="prenom" placeholder="Entrez votre prénom" value={form.prenom} onChange={handleChange} required />
+                        <Field className="combat-input" label="Nom" icon={BsPerson} name="nom" placeholder="Entrez votre nom" value={form.nom} onChange={handleChange} required />
+                        <Field className="combat-input" label="Email" icon={BsEnvelope} name="email" type="email" placeholder="Entrez votre email" value={form.email} onChange={handleChange} required />
+                        <Field className="combat-input" label="Téléphone" icon={BsTelephone} name="telephone" type="tel" placeholder="Entrez votre numéro" value={form.telephone} onChange={handleChange} />
+                        <Field className="combat-input" label="Organisation" icon={BsBuilding} name="organisation" placeholder="Nom de votre organisation" value={form.organisation} onChange={handleChange} />
+                        <Field className="combat-input" label="Sujet" icon={BsBook} name="sujet" placeholder="Entrez le sujet" value={form.sujet} onChange={handleChange} required />
 
                         <div className="col-12">
                             <label htmlFor="message" className="form-label fw-medium">
@@ -113,11 +139,25 @@ export default function Contact() {
                         <div className="col-12">
                             <button
                                 type="submit"
-                                className="btn text-white btn-sm px-3"
-                                style={{ backgroundColor: ACCENT }}
+                                className="btn btn-navy d-inline-flex align-items-center gap-2"
+                                
+                                disabled={status === "sending"}
                             >
-                                Envoyer le message
+                                {status === "sending" ? (
+                                    <>
+                                        <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true" />
+                                        Envoi...
+                                    </>
+                                ) : (
+                                    <>
+                                        Envoyer
+                                        <i className="bi bi-send" />
+                                    </>
+                                )}
                             </button>
+
+                            {status === "sent" && <p className="text-success mt-3">Merci, votre message a bien été envoyé.</p>}
+                            {status === "error" && <p className="text-danger mt-3">Une erreur est survenue, veuillez réessayer.</p>}
                         </div>
                     </div>
                 </form>

@@ -10,6 +10,7 @@ export default function BookHero({
   subtitle,
   buyText,
   buyLink = "#",
+  onBuy,                 // facultatif : fonction appelée au clic (ouvre la fenêtre d'achat)
   programText = "Voir le programme",
   programLink = "#",
   availability,
@@ -30,10 +31,18 @@ export default function BookHero({
             <p className="book-subtitle">{subtitle}</p>
 
             <div className="d-flex flex-wrap gap-3 mb-4">
-              <a href={buyLink} className="book-btn book-btn-dark">
-                {buyText}
-                <i className="bi bi-arrow-right" />
-              </a>
+
+                {onBuy ? (
+                <button type="button" onClick={onBuy} className="book-btn book-btn-dark border-0">
+                  {buyText}
+                  <i className="bi bi-arrow-right" />
+                </button>
+              ) : (
+                <a href={buyLink} className="book-btn book-btn-dark">
+                  {buyText}
+                  <i className="bi bi-arrow-right" />
+                </a>
+              )}
               <a href={programLink} className="book-btn book-btn-light">
                 <i className="bi bi-book" />
                 {programText}

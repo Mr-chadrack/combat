@@ -24,7 +24,7 @@ export default function Navbar() {
     const hasBackground = !isHome;
 
       // Accueil : exactement comme avant (0.5). Autres pages : un peu plus opaque
-    const bgAlpha = isHome ? 0.85 : 1.85;
+    const bgAlpha = isHome ? 1.85 : 1.85;
 
 
     // Couleurs des liens (variables Bootstrap 5.3)
@@ -54,7 +54,7 @@ export default function Navbar() {
                 backgroundColor: hasBackground
                   ? `rgba(255, 255, 255, ${bgAlpha})`
                     : "transparent",
-                backdropFilter: scrolled ? "blur(8px)" : "none",
+                backdropFilter: scrolled ? "blur(50px)" : "none",
                 transition: "all 0.3s ease",
             }}
         >

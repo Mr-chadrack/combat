@@ -320,6 +320,9 @@ body {
   text-decoration: none;
   border-radius: 999px;
   transition: transform 0.2s ease, filter 0.2s ease;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
 }
 
 .cta-button:hover {
