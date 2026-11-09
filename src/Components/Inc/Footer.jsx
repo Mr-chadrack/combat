@@ -16,7 +16,7 @@ const menuLinks = [
     { label: "Accueil", href: "/" },
     { label: "À propos", href: "/apropos" },
     { label: "Nos missions", href: "/missions" },
-    { label: "Formation", href: "/formation" },
+    { label: "Formation", href: "/Formation" },
     { label: "Contact", href: "/contact" },
 ];
 
