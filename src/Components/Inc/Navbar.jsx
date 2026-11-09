@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import logo from "../../image/logo.PNG"; // garde ton import actuel
+import logo from "../../image/logo.png"; // garde ton import actuel
 
 const NAVY = "#17356b"; // bleu foncé des liens
 
