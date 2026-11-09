@@ -37,9 +37,9 @@ export default function BannerCta({
                 {buttonContent}
               </button>
             ) : (
-              <a href={link} className="cta-button">
+                <Link to={link} className="cta-button">
                 {buttonContent}
-              </a>
+              </Link>
             )}
           </div>
         </div>
