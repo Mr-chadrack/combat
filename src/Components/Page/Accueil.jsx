@@ -25,7 +25,7 @@ const Accueil = () => {
                         <div className="col-md-12 text-center">
                             {/* presentation */}
                             <Mission />
-                            <BannerCta title='Voulez-vous savoir plus sur nos formations ?' buttonText='Formez-vous' link='/formation' paragraphe='le bon combat est une plateforme chrétienne née d une volonté d annoncer jésus-christ  de transmettre la parole de Dieu et d encourager chacun à faire face aux combats de la vie avec foi.' />
+                            <BannerCta title='Voulez-vous savoir plus sur nos formations ?' buttonText='Formez-vous' link='/Formation' paragraphe='le bon combat est une plateforme chrétienne née d une volonté d annoncer jésus-christ  de transmettre la parole de Dieu et d encourager chacun à faire face aux combats de la vie avec foi.' />
                             <p className=" mb-1 fw-light">Nous sommes une plateforme chretiénne</p>
                             <h3 className="fw-bolder" style={{ color: '#15336b' }}>découvrir notre communauté</h3>
                             <div className="underline mx-auto"></div>
