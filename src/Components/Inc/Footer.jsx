@@ -8,7 +8,7 @@ import {
     BsArrowRight,
 } from "react-icons/bs";
 
-import logo from "../../image/logo.PNG";
+import logo from "../../image/logo.png";
 
 const ACCENT = "#17356b";
 
